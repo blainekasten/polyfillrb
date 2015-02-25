@@ -12,11 +12,6 @@ module Polyfillrb
       );
     JS
 
-    jscode = <<-JS
-      console.log('hello, is this working?')
-    JS
-
-
     i = IO.popen('node', 'r+')
     i.write(jscode)
     i.close_write
@@ -24,6 +19,7 @@ module Polyfillrb
     polyfills = i.read 
     puts '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
     puts polyfills
+    polyfills
   end
 
 end
