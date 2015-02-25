@@ -26,9 +26,10 @@ module Polyfillrb
   #
   # loads the javascript for the application
   def self.init
+    project_directory = File.expand_path(File.dirname(__FILE__))
     # clone polyfill
     puts "-- Cloning Polyfill js\n"
-    %x( git clone --branch 1.0.0 git@github.com:Financial-Times/polyfill-service.git )
+    %x( cd #{project_directory} && git clone --branch 1.0.0 git@github.com:Financial-Times/polyfill-service.git )
 
     # build the npm locals
     puts "\n-- Grabbing dependencies\n"
