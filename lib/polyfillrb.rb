@@ -16,6 +16,10 @@ module Polyfillrb
       );
     JS
 
+    jscode = <<-JS
+      console.log('hello, is this working?')
+    JS
+
 
     i = IO.popen('node', 'r+')
     i.write(jscode)
