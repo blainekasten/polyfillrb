@@ -1,0 +1,12 @@
+{
+  "name": "polyfillrb",
+  "description": "Ruby wrapper for polyfill service",
+  "dependencies": {
+    "polyfill-service": "1.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/blainekasten/polyfillrb.git"
+  },
+  "version": "1.0.0"
+}
