@@ -22,5 +22,18 @@ module Polyfillrb
     polyfills
   end
 
+
+  #
+  # loads the javascript for the application
+  def self.init
+    # clone polyfill
+    puts "-- Cloning Polyfill js\n"
+    %x( git clone --branch 1.0.0 git@github.com:Financial-Times/polyfill-service.git )
+
+    # build the npm locals
+    puts "\n-- Grabbing dependencies\n"
+    %x( cd ./polyfill-service && npm install )
+  end
+
 end
 
