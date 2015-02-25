@@ -6,12 +6,8 @@ module Polyfillrb
 
     jscode = <<-JS
       console.log(
-        var polyfills = require('./polyfill-service').getPolyfillString({
-          uaString: 'Mozilla/5.0 (Windows; U; MSIE 7.0; Windows NT 6.0; en-US)',
-          features: {
-            'Element.prototype.matches': { flags: ['always', 'gated'] },
-            'modernizr:es5array': {}
-          }
+        require('./polyfill-service').getPolyfillString({
+          uaString: 'Mozilla/5.0 (Windows; U; MSIE 7.0; Windows NT 6.0; en-US)'
         });
       );
     JS
