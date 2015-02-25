@@ -2,11 +2,13 @@ require 'polyfillrb/rails'
 
 module Polyfillrb
 
+  PROJECT_DIRECTORY = File.expand_path(File.dirname(__FILE__))
+
   def self.get_polyfills
 
     jscode = <<-JS
       console.log(
-        require('./polyfill-service').getPolyfillString({
+        require('#{PROJECT_DIRECTORY}/polyfill-service').getPolyfillString({
           uaString: 'Mozilla/5.0 (Windows; U; MSIE 7.0; Windows NT 6.0; en-US)'
         })
       );
@@ -26,14 +28,16 @@ module Polyfillrb
   #
   # loads the javascript for the application
   def self.init
-    project_directory = File.expand_path(File.dirname(__FILE__))
+    # check for node and npm
+
+
     # clone polyfill
     puts "-- Cloning Polyfill js\n"
-    %x( cd #{project_directory} && git clone --branch 1.0.0 git@github.com:Financial-Times/polyfill-service.git )
+    %x( cd #{PROJECT_DIRECTORY} && git clone --branch 1.0.0 git@github.com:Financial-Times/polyfill-service.git )
 
     # build the npm locals
     puts "\n-- Grabbing dependencies\n"
-    %x( cd #{project_directory}/polyfill-service && npm install )
+    %x( cd #{PROJECT_DIRECTORY}/polyfill-service && npm install )
   end
 
 end
