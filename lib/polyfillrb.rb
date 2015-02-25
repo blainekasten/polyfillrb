@@ -6,7 +6,7 @@ module Polyfillrb
 
     jscode = <<-JS
       console.log(
-        require('../polyfill-service').getPolyfillString({
+        require('./polyfill-service').getPolyfillString({
           uaString: 'Mozilla/5.0 (Windows; U; MSIE 7.0; Windows NT 6.0; en-US)'
         })
       );
@@ -33,7 +33,7 @@ module Polyfillrb
 
     # build the npm locals
     puts "\n-- Grabbing dependencies\n"
-    %x( cd ./polyfill-service && npm install )
+    %x( cd #{project_directory}/polyfill-service && npm install )
   end
 
 end
