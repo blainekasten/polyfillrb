@@ -1,7 +1,7 @@
 
 module Polyfillrb
   module Rails
-    class ViewHelper
+    module ViewHelper
 
       def polyfills
         content_tag('script', Polyfillrb.get_polyfills)
