@@ -4,13 +4,13 @@ module Polyfillrb
 
   PROJECT_DIRECTORY = File.expand_path(File.dirname(__FILE__))
 
-  def self.get_polyfills
+  def self.get_polyfills(ua, minify=false)
 
     jscode = <<-JS
       console.log(
         require('#{PROJECT_DIRECTORY}/polyfill-service/lib/index.js').getPolyfillString({
-          uaString: 'Mozilla/5.0 (Windows; U; MSIE 7.0; Windows NT 6.0; en-US)',
-          minify: false
+          uaString: '#{ua}',
+          minify: #{minify}
         })
       );
     JS
