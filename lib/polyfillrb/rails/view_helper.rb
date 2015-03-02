@@ -4,7 +4,7 @@ module Polyfillrb
     module ViewHelper
 
       def polyfills
-        polyfills = Polyfillrb.getPolyfills(
+        polyfills = Polyfillrb.get_polyfills(
           request.env['HTTP_USER_AGENT'],
           (::Rails.env != 'development')
         )

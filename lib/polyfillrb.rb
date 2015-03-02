@@ -8,7 +8,7 @@ module Polyfillrb
 
     jscode = <<-JS
       console.log(
-        require('#{PROJECT_DIRECTORY}/polyfill-service/lib/index.js').getPolyfillString({
+        require('#{PROJECT_DIRECTORY}/polyfill-service/lib').getPolyfillString({
           uaString: '#{ua}',
           minify: #{minify},
           features: { default: { flags: [] } }
@@ -55,7 +55,7 @@ module Polyfillrb
   end
 
 
-  def self.method_missing(method)
+  def self.method_missing(method, blah, blah)
     puts "Polyfillrb does not support the action '#{method}'"
   end
 
