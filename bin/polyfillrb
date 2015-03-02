@@ -2,4 +2,5 @@
 
 require 'polyfillrb'
 
-Polyfillrb.send(ARGV[1])
+method = ARGV[1] || 'init'
+Polyfillrb.send(ARGV[1].to_sym)
