@@ -2,8 +2,5 @@
 
 require 'polyfillrb'
 
-puts '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
-puts ARGV[0]
-puts ARGV[1]
-method = ARGV[1] || 'init'
+method = ARGV[0] || 'init'
 Polyfillrb.send(method.to_sym)
