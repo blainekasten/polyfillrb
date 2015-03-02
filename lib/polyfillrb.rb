@@ -10,7 +10,8 @@ module Polyfillrb
       console.log(
         require('#{PROJECT_DIRECTORY}/polyfill-service/lib/index.js').getPolyfillString({
           uaString: '#{ua}',
-          minify: #{minify}
+          minify: #{minify},
+          features: { default: { flags: [] } }
         })
       );
     JS
