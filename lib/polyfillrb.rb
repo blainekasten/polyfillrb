@@ -34,7 +34,8 @@ module Polyfillrb
 
     # clone polyfill
     puts "-- Cloning Polyfill js\n"
-    %x( cd #{PROJECT_DIRECTORY} && git clone --branch v1.2.0 git@github.com:Financial-Times/polyfill-service.git )
+    #%x( cd #{PROJECT_DIRECTORY} && git clone --branch v1.2.0 git@github.com:Financial-Times/polyfill-service.git )
+    %x( cd #{PROJECT_DIRECTORY} && git clone git@github.com:Financial-Times/polyfill-service.git )
 
     # build the npm locals
     puts "\n-- Grabbing dependencies\n"
