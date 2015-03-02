@@ -55,7 +55,7 @@ module Polyfillrb
   end
 
 
-  def self.method_missing(method, blah, blah)
+  def self.method_missing(method, blah, bleh)
     puts "Polyfillrb does not support the action '#{method}'"
   end
 
