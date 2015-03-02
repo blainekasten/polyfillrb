@@ -44,5 +44,17 @@ module Polyfillrb
     #%x( cd #{PROJECT_DIRECTORY}/polyfill-service && grunt build )
   end
 
+  def self.build
+
+    puts "-- Building polyfills \n"
+    %x( cd #{PROJECT_DIRECTORY}/polyfill-service && grunt buildsources )
+
+  end
+
+
+  def self.method_missing(method)
+    puts "Polyfillrb does not support the action '#{method}'"
+  end
+
 end
 
