@@ -9,7 +9,7 @@ module Polyfillrb
           (::Rails.env != 'development')
         )
 
-        content_tag('script', polyfills)
+        content_tag('script', polyfills, {}, false)
       end
 
     end
