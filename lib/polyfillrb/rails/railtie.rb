@@ -16,15 +16,11 @@ module Polyfillrb
         # clone polyfill
         puts "-- Cloning Polyfill js\n"
         #%x( cd #{PROJECT_DIRECTORY} && git clone --branch v1.2.0 git@github.com:Financial-Times/polyfill-service.git )
-        %x( cd #{PROJECT_DIRECTORY} && git clone git@github.com:Financial-Times/polyfill-service.git )
+        %x( cd #{Polyfillrb::PROJECT_DIRECTORY} && git clone git@github.com:Financial-Times/polyfill-service.git )
 
         # build the npm locals
         puts "\n-- Grabbing dependencies\n"
-        %x( cd #{PROJECT_DIRECTORY}/polyfill-service && npm install )
-
-        # build the polyfills
-        #puts "\n-- Building polyfills\n"
-        #%x( cd #{PROJECT_DIRECTORY}/polyfill-service && grunt build )
+        %x( cd #{Polyfillrb::PROJECT_DIRECTORY}/polyfill-service && [ -d "node_modules" ] || npm install )
       end
 
     end
