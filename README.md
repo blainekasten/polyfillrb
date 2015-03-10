@@ -1,4 +1,4 @@
-# Polyfillrb
+# Polyfillrb [![Code Climate](https://codeclimate.com/github/blainekasten/polyfillrb/badges/gpa.svg)](https://codeclimate.com/github/blainekasten/polyfillrb)
 
 A simple ruby wrapper for the phenominal [Polyfill.io Service by FTLabs](https://cdn.polyfill.io/v1/docs/) for Rails applications.
 
@@ -24,15 +24,11 @@ The library provides a simple view helper to load in the polyfills. Simply in an
 
 ### Installing
 
-Add the gem to your Gemfile: `gem "polyfillrb", "~>1.0.0"`
+Add the gem to your Gemfile: `gem "polyfillrb", "~>1.1.0"`
 
-Then you must run the command to build the polyfills. simply run:
-
-    %> polyfillrb init
 
 ### Future Plans
 
 * Cache polyfills to avoid node IO calls (especially in production)
 * Ensure we are doing the most performant javascript executions.
-* Remove the need to run `polyfillrb init` on install. It'd be best if it could all be bundled up, but that has some issues to resolve in itself.
 
