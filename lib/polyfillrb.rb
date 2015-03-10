@@ -30,38 +30,5 @@ module Polyfillrb
     return i.read 
   end
 
-
-  #
-  # loads the javascript for the application
-  def self.init
-    # check for node and npm
-
-
-    # clone polyfill
-    puts "-- Cloning Polyfill js\n"
-    #%x( cd #{PROJECT_DIRECTORY} && git clone --branch v1.2.0 git@github.com:Financial-Times/polyfill-service.git )
-    %x( cd #{PROJECT_DIRECTORY} && git clone git@github.com:Financial-Times/polyfill-service.git )
-
-    # build the npm locals
-    puts "\n-- Grabbing dependencies\n"
-    %x( cd #{PROJECT_DIRECTORY}/polyfill-service && npm install )
-
-    # build the polyfills
-    #puts "\n-- Building polyfills\n"
-    #%x( cd #{PROJECT_DIRECTORY}/polyfill-service && grunt build )
-  end
-
-  def self.build
-
-    puts "-- Building polyfills \n"
-    %x( cd #{PROJECT_DIRECTORY}/polyfill-service && grunt buildsources )
-
-  end
-
-
-  def self.method_missing(method, blah, bleh)
-    puts "Polyfillrb does not support the action '#{method}'"
-  end
-
 end
 
