@@ -15,9 +15,11 @@ module Polyfillrb
       initializer "polyfillrb.configure_rails_initialization" do |app|
 
         # clone polyfill
-        %x( cd #{Polyfillrb::PROJECT_DIRECTORY} && git clone git@github.com:Financial-Times/polyfill-service.git && cd ./polyfill-service && git checkout 4620fb6c3cdd0ff0d841034584b2bf6039367d12 )
+        Rails.logger.info "Collecting Polyfill Libraries"
+        %x( cd #{Polyfillrb::PROJECT_DIRECTORY} && git clone git@github.com:Financial-Times/polyfill-service.git )
 
         # build the npm locals
+        Rails.logger.info "Building Polyfills"
         %x( cd #{Polyfillrb::PROJECT_DIRECTORY}/polyfill-service && [ -d "node_modules" ] || npm install && grunt buildsources )
 
       end
