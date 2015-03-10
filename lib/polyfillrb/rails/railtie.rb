@@ -20,7 +20,7 @@ module Polyfillrb
 
         # build the npm locals
         puts "\n-- Grabbing dependencies\n"
-        %x( cd #{Polyfillrb::PROJECT_DIRECTORY}/polyfill-service && [ -d "node_modules" ] || npm install )
+        %x( cd #{Polyfillrb::PROJECT_DIRECTORY}/polyfill-service && [ -d "node_modules" ] || npm install && grunt buildsources )
       end
 
     end
