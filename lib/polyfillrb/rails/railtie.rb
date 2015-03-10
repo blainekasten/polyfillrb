@@ -1,5 +1,4 @@
 require 'rails'
-require 'rails/logger'
 
 module Polyfillrb
   module Rails
