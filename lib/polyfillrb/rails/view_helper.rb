@@ -4,10 +4,12 @@ module Polyfillrb
     module ViewHelper
 
       def polyfills
-        polyfills = Polyfillrb.get_polyfills(
+        polyfills = ::Polyfillrb.get_polyfills(
           request.env['HTTP_USER_AGENT'],
           (::Rails.env != 'development')
         )
+
+        ::Rails.logger.info polyfills
 
         content_tag('script', polyfills, {}, false)
       end

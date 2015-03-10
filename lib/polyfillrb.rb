@@ -1,4 +1,4 @@
-require 'polyfillrb/rails'
+require 'polyfillrb/rails' if defined?(Rails)
 
 module Polyfillrb
 
