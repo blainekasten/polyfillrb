@@ -13,14 +13,13 @@ module Polyfillrb
 
       # Preload the application with polyfills
       initializer "polyfillrb.configure_rails_initialization" do |app|
+
         # clone polyfill
-        puts "-- Cloning Polyfill js\n"
-        #%x( cd #{PROJECT_DIRECTORY} && git clone --branch v1.2.0 git@github.com:Financial-Times/polyfill-service.git )
-        %x( cd #{Polyfillrb::PROJECT_DIRECTORY} && git clone git@github.com:Financial-Times/polyfill-service.git )
+        %x( cd #{Polyfillrb::PROJECT_DIRECTORY} && git clone --branch v1.3.0 git@github.com:Financial-Times/polyfill-service.git )
 
         # build the npm locals
-        puts "\n-- Grabbing dependencies\n"
         %x( cd #{Polyfillrb::PROJECT_DIRECTORY}/polyfill-service && [ -d "node_modules" ] || npm install && grunt buildsources )
+
       end
 
     end
