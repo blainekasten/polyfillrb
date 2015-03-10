@@ -9,8 +9,6 @@ module Polyfillrb
           (::Rails.env != 'development')
         )
 
-        ::Rails.logger.info polyfills
-
         content_tag('script', polyfills, {}, false)
       end
 
