@@ -22,8 +22,9 @@ module Polyfillrb
 
         if !::Polyfillrb.has_built_sources?
           # build the npm locals
-          ::Rails.logger.info "Buidling Polyfills...\n  this may take a minute"
+          ::Rails.logger.info "Buidling Polyfills...\n  this may take a minute\n You're server may not respond until this is done"
           %x( cd #{::Polyfillrb::PROJECT_DIRECTORY}/polyfill-service && [ -d "node_modules" ] || npm install && grunt buildsources )
+          ::Rails.logger.info "  Done! Polyfills are built. You're server should be back in action"
         end
 
       end
