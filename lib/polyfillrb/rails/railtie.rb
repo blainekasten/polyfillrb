@@ -15,13 +15,15 @@ module Polyfillrb
       config.to_prepare do
 
         # clone polyfill
-        ::Rails.logger.info "Gathering Polyfill Library..."
-        Thread.new do
-          %x( cd #{Polyfillrb::PROJECT_DIRECTORY} && [ -d "polyfill-service" ||  git clone git@github.com:Financial-Times/polyfill-service.git )
+        if !::Polyfillrb.has_installed_service?
+          ::Rails.logger.info "Gathering Polyfill Library..."
+          %x( cd #{::Polyfillrb::PROJECT_DIRECTORY} && git clone git@github.com:Financial-Times/polyfill-service.git )
+        end
 
+        if !::Polyfillrb.has_built_sources?
           # build the npm locals
           ::Rails.logger.info "Buidling Polyfills...\n  this may take a minute"
-          %x( cd #{Polyfillrb::PROJECT_DIRECTORY}/polyfill-service && [ -d "node_modules" ] || npm install && grunt buildsources )
+          %x( cd #{::Polyfillrb::PROJECT_DIRECTORY}/polyfill-service && [ -d "node_modules" ] || npm install && grunt buildsources )
         end
 
       end
