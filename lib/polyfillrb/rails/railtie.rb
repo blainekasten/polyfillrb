@@ -12,12 +12,12 @@ module Polyfillrb
       end
 
       # Preload the application with polyfills
-      initializer "polyfillrb.to_prepare" do |app|
+      config.to_prepare do
 
         # clone polyfill
+        ::Rails.logger.info "Gathering Polyfill Library..."
         Thread.new do
-          ::Rails.logger.info "Gathering Polyfill Library..."
-          %x( cd #{Polyfillrb::PROJECT_DIRECTORY} && git clone git@github.com:Financial-Times/polyfill-service.git )
+          %x( cd #{Polyfillrb::PROJECT_DIRECTORY} && [ -d "polyfill-service" ||  git clone git@github.com:Financial-Times/polyfill-service.git )
 
           # build the npm locals
           ::Rails.logger.info "Buidling Polyfills...\n  this may take a minute"
