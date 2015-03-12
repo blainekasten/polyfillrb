@@ -11,8 +11,13 @@ module Polyfillrb
         end
       end
 
+      config.console do
+        @dont_prepare = true
+      end
+
       # Preload the application with polyfills
       config.to_prepare do
+        return if @dont_prepare
 
         # clone polyfill
         Thread.new do 
